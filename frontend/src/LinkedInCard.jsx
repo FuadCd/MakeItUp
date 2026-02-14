@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import './LinkedInCard.css'
 
-// Helper to get random time for comments
-function getRandomTime() {
-  const times = ['2h', '5h', '1d', '2d', '3d', '1w', '2w']
-  return times[Math.floor(Math.random() * times.length)]
+// Comment time cannot be before the post. Post is "Just now", so comments are "Just now" only.
+function getCommentTime() {
+  return 'Just now'
 }
 
 export function LinkedInCard({ name, body, hashtags, comments = [] }) {
@@ -17,7 +16,7 @@ export function LinkedInCard({ name, body, hashtags, comments = [] }) {
         <div className="meta">
           <strong className="author">{name}</strong>
           <span className="headline">Transforming the ordinary into the extraordinary</span>
-          <span className="time">Just now · Edited · 🌐</span>
+          <span className="time">Just now · 🌐</span>
         </div>
       </div>
       <div className="card-body">
@@ -83,7 +82,7 @@ export function LinkedInCard({ name, body, hashtags, comments = [] }) {
                     <div className="comment-meta-row">
                       <strong className="comment-name">{c.archetype}</strong>
                       <span className="comment-dot"> · </span>
-                      <span className="comment-time">{getRandomTime()}</span>
+                      <span className="comment-time">{getCommentTime()}</span>
                       <span className="comment-more" aria-hidden="true">⋯</span>
                     </div>
                     <p className="comment-text">{c.text}</p>

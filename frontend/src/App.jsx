@@ -5,17 +5,7 @@ import { JobsPage } from './JobsPage'
 import { HeadlinesPage } from './HeadlinesPage'
 import './App.css'
 
-const FAKE_NAMES = [
-  'Bradley Synergy',
-  'Morgan Pivot',
-  'Jordan Leverage',
-  'Taylor Impact',
-  'Casey Disrupt',
-]
-
-function pickRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)]
-}
+const AUTHOR_NAME = 'You'
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('posts') // 'posts', 'jobs', or 'headlines'
@@ -23,7 +13,6 @@ export default function App() {
   const [posts, setPosts] = useState([]) // Array of posts with their activities
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [fakeName] = useState(() => pickRandom(FAKE_NAMES))
 
   const handleGenerate = async () => {
     if (!activity.trim()) return
@@ -71,7 +60,10 @@ export default function App() {
     <div className="app">
       <header className="header">
         <div className="header-left">
-          <h1 className="brand">MakeItUp</h1>
+          <div className="brand-wrap">
+            <img src="/logo.png" alt="" className="brand-logo" />
+            <h1 className="brand">MakeItUp</h1>
+          </div>
           <p className="tagline">Time To Get Noticed By Everyone... But A Recruiter</p>
         </div>
         <nav className="app-nav">
@@ -107,7 +99,7 @@ export default function App() {
         <>
       <section className="input-section">
         <label htmlFor="activity" className="label">
-          Describe what you accomplished today
+          What task are we glorifying today?
         </label>
         <textarea
           id="activity"
@@ -139,7 +131,7 @@ export default function App() {
                 <span className="activity-badge">Original: {post.activity}</span>
               </div>
               <LinkedInCard
-                name={fakeName}
+                name={AUTHOR_NAME}
                 body={post.body}
                 hashtags={post.hashtags}
                 comments={post.comments || []}

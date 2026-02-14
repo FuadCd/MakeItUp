@@ -42,7 +42,7 @@ export function JobsPage() {
 
       <div className="jobs-container">
         {loading && jobs.length === 0 ? (
-          <div className="jobs-loading">Generating absurd job postings…</div>
+          <div className="jobs-loading">Scanning for jobs you won't get...</div>
         ) : (
           jobs.map((job, i) => (
             <div key={i} className="job-card">

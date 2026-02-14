@@ -1,6 +1,12 @@
-# MakeItUp — The App That We All Know (And Hate?)
+# MakeItUp — Time To Get Noticed By Everyone... But A Recruiter
 
-Turn any mundane activity into a satirical, exaggerated LinkedIn-style “professional success story” using AI. A tongue-in-cheek take on grind culture and performative professionalism.
+Turn mundane activities into satirical, exaggerated LinkedIn-style posts. Generate absurd job listings and tech-news headlines. A tongue-in-cheek take on grind culture, performative professionalism, and LinkedIn culture.
+
+## Features
+
+- **Posts** — Describe a normal activity; get an over-the-top LinkedIn post with AI-generated, archetype-based comments (e.g. “The Hustle Bro”, “The Thought Leader”). Generate new variations per post.
+- **Jobs** — Satirical job postings (e.g. “Job That Was Filled 3 Months Ago”, “15 Years Experience for Entry-Level Role”). Refresh to load new batches.
+- **News** — Absurd one-line headlines (e.g. “ChatGPT Applies to Y Combinator and Gets In”, “3-Year-Old Launches 5th Unicorn Startup”). Generate new headlines on demand.
 
 ## Tech Stack
 
@@ -43,42 +49,55 @@ npm install
 npm run dev
 ```
 
-The app runs at `http://localhost:5173`. It proxies `/api` to the backend, so no CORS setup is needed in development.
+The app runs at **http://localhost:5173**. The dev server proxies `/api` to `http://localhost:3001`, so the backend must be running for Posts, Jobs, and News to work.
 
-### 3. Get an OpenAI API Key
+### 3. OpenAI API Key
 
-Create an API key at [platform.openai.com/api-keys](https://platform.openai.com/api-keys) and add it to `backend/.env`.
+Create an API key at [platform.openai.com/api-keys](https://platform.openai.com/api-keys) and add it to `backend/.env`. The same key is used for all three features (Posts, Jobs, News).
 
 ## Usage
 
-1. Enter a normal activity (e.g. “Made coffee”, “Replied to an email”).
-2. Choose a tone: **Polite Professional**, **Hustle Culture Disciple**, or **Visionary Thought Leader**.
-3. Click **Generate Post**.
-4. View the result in the LinkedIn-style card, check the **Buzzword Density Meter**, and use **Generate New Variation** for another take.
+1. **Posts** — Enter a normal activity (e.g. “Made coffee”, “Replied to an email”), click **Generate Post**. View the LinkedIn-style card; click **Comment** to see AI-generated satirical comments. Use **Generate New Variation** for another take on the same activity.
+2. **Jobs** — Open the **Jobs** tab. The app loads three satirical job postings; use **Refresh Jobs** to load a new set.
+3. **News** — Open the **News** tab. The app loads three absurd headlines; use **Generate New Headlines** for a new set.
 
 ## Project Structure
 
 ```
 Touch-Grass/
 ├── backend/
-│   ├── server.js       # Express server + POST /generate + OpenAI
+│   ├── server.js          # Express API: /generate, /generate-jobs, /generate-headlines
 │   ├── package.json
 │   └── .env.example
 ├── frontend/
 │   ├── src/
-│   │   ├── App.jsx
-│   │   ├── api.js
+│   │   ├── App.jsx        # Main app, nav (Posts / Jobs / News), post feed
+│   │   ├── api.js         # API client (shared base URL for all requests)
 │   │   ├── LinkedInCard.jsx
-│   │   └── BuzzwordMeter.jsx
+│   │   ├── LinkedInCard.css
+│   │   ├── JobsPage.jsx
+│   │   ├── JobsPage.css
+│   │   ├── HeadlinesPage.jsx
+│   │   ├── HeadlinesPage.css
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── main.jsx
 │   ├── index.html
+│   ├── vite.config.js     # Dev proxy: /api → http://localhost:3001
 │   └── package.json
 └── README.md
 ```
 
 ## API
 
-- **POST /generate**  
-  Body: `{ "activity": string, "tone": "polite-professional" | "hustle-culture" | "visionary-leader" }`  
-  Returns: `{ title, body, keyTakeaways, hashtags }`
+All routes require `Content-Type: application/json`. The frontend uses a single base URL (in dev, `/api` is proxied to the backend).
 
-No database or authentication required.
+| Method | Route | Body | Response |
+|--------|--------|------|----------|
+| POST | `/generate` | `{ "activity": string }` | `{ body, hashtags, comments }` — `comments` is an array of `{ archetype, text }`. |
+| POST | `/generate-jobs` | `{}` | `{ jobs }` — `jobs` is an array of `{ archetype, title, description, requirements, location, posted }`. |
+| POST | `/generate-headlines` | `{}` | `{ headlines }` — `headlines` is an array of strings. |
+
+- **Production:** Set `VITE_API_URL` to your backend URL when building the frontend (e.g. `VITE_API_URL=https://your-api.com npm run build`). Otherwise the app uses `/api` as the base path.
+
+No database or authentication is required.
