@@ -1,28 +1,29 @@
 .headlines-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+}
+
+.headlines-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 4rem;
 }
 
 .headlines-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid var(--border-light);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .headlines-title {
-  font-family: var(--font-display);
-  font-size: 2.25rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--linkedin-blue) 0%, #004182 50%, #0a66c2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--linkedin-blue);
   margin: 0;
-  letter-spacing: -0.02em;
 }
 
 .headlines-container {
@@ -40,20 +41,13 @@
 
 .headline-card {
   background: var(--card-bg);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
   display: flex;
   align-items: flex-start;
-  gap: 1.25rem;
-}
-
-.headline-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-  border-color: var(--border);
+  gap: 1rem;
 }
 
 .headline-icon {

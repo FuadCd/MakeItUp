@@ -82,7 +82,18 @@ Respond with a JSON object: "body", "hashtags" (both strings).`;
     // Always include "The Always-Commenter" as the first comment, then randomly select 2 more
     const alwaysCommenter = allArchetypes.find(arch => arch.name === "The Always-Commenter");
     const otherArchetypes = allArchetypes.filter(arch => arch.name !== "The Always-Commenter");
-    const shuffled = [...otherArchetypes].sort(() => Math.random() - 0.5);
+    
+    // Proper Fisher-Yates shuffle for better randomization
+    const shuffleArray = (array) => {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    };
+    
+    const shuffled = shuffleArray(otherArchetypes);
     const selectedArchetypes = [alwaysCommenter, ...shuffled.slice(0, 2)];
 
     // Generate archetype-based comments

@@ -70,33 +70,34 @@ export default function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1 className="brand">MakeItUp</h1>
-        <p className="tagline">Time To Get Noticed By Everyone... But A Recruiter</p>
+        <div className="header-left">
+          <h1 className="brand">MakeItUp</h1>
+          <p className="tagline">Time To Get Noticed By Everyone... But A Recruiter</p>
+        </div>
+        <nav className="app-nav">
+          <button
+            type="button"
+            className={`nav-btn ${currentPage === 'posts' ? 'nav-btn-active' : ''}`}
+            onClick={() => setCurrentPage('posts')}
+          >
+            Posts
+          </button>
+          <button
+            type="button"
+            className={`nav-btn ${currentPage === 'jobs' ? 'nav-btn-active' : ''}`}
+            onClick={() => setCurrentPage('jobs')}
+          >
+            Jobs
+          </button>
+          <button
+            type="button"
+            className={`nav-btn ${currentPage === 'headlines' ? 'nav-btn-active' : ''}`}
+            onClick={() => setCurrentPage('headlines')}
+          >
+            News
+          </button>
+        </nav>
       </header>
-
-      <nav className="app-nav">
-        <button
-          type="button"
-          className={`nav-btn ${currentPage === 'posts' ? 'nav-btn-active' : ''}`}
-          onClick={() => setCurrentPage('posts')}
-        >
-          Posts
-        </button>
-        <button
-          type="button"
-          className={`nav-btn ${currentPage === 'jobs' ? 'nav-btn-active' : ''}`}
-          onClick={() => setCurrentPage('jobs')}
-        >
-          Jobs
-        </button>
-        <button
-          type="button"
-          className={`nav-btn ${currentPage === 'headlines' ? 'nav-btn-active' : ''}`}
-          onClick={() => setCurrentPage('headlines')}
-        >
-          News
-        </button>
-      </nav>
 
       {currentPage === 'jobs' ? (
         <JobsPage />
@@ -106,7 +107,7 @@ export default function App() {
         <>
       <section className="input-section">
         <label htmlFor="activity" className="label">
-          Describe a normal activity…
+          Describe what you accomplished today
         </label>
         <textarea
           id="activity"
