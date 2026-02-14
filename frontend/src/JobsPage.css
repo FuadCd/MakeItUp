@@ -1,0 +1,202 @@
+.jobs-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.jobs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.jobs-title {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--linkedin-blue) 0%, #004182 50%, #0a66c2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.jobs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.jobs-loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted, #666);
+  font-style: italic;
+}
+
+.job-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.job-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--border);
+}
+
+.job-header {
+  margin-bottom: 1rem;
+}
+
+.job-title-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.job-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text, #000);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.job-archetype-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  background: rgba(10, 102, 194, 0.1);
+  color: var(--linkedin-blue, #0a66c2);
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-muted, #666);
+  flex-wrap: wrap;
+}
+
+.job-location,
+.job-posted {
+  display: flex;
+  align-items: center;
+}
+
+.job-description {
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.job-description p {
+  margin: 0;
+  color: var(--text, #000);
+  font-size: 0.95rem;
+}
+
+.job-requirements {
+  margin-bottom: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border, #e0e0e0);
+}
+
+.requirements-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text, #000);
+  margin: 0 0 0.75rem 0;
+}
+
+.requirements-content {
+  font-size: 0.9rem;
+  color: var(--text, #000);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.requirements-content ul,
+.requirements-content ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.requirements-content li {
+  margin: 0.25rem 0;
+}
+
+.job-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border, #e0e0e0);
+}
+
+.job-btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.job-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.job-btn-primary {
+  background: var(--linkedin-blue, #0a66c2);
+  color: white;
+}
+
+.job-btn-primary:hover:not(:disabled) {
+  background: var(--linkedin-blue-hover, #004182);
+}
+
+.job-btn-secondary {
+  background: transparent;
+  color: var(--linkedin-blue, #0a66c2);
+  border: 1px solid var(--linkedin-blue, #0a66c2);
+}
+
+.job-btn-secondary:hover:not(:disabled) {
+  background: rgba(10, 102, 194, 0.08);
+}
+
+@media (max-width: 640px) {
+  .jobs-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .job-title-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-actions {
+    flex-direction: column;
+  }
+
+  .job-btn {
+    width: 100%;
+  }
+}

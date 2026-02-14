@@ -1,43 +1,56 @@
 .app {
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: 3rem 1.5rem 4rem;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border-light);
 }
 
 .brand {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  color: var(--linkedin-blue);
-  margin: 0 0 0.25rem;
-  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--linkedin-blue) 0%, #004182 50%, #0a66c2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .tagline {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
 }
 
 .sub {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-muted);
   margin: 0;
+  font-weight: 500;
 }
 
 .input-section {
   background: var(--card-bg);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border);
-  margin-bottom: 2rem;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  margin-bottom: 2.5rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.input-section:hover {
+  box-shadow: var(--shadow-lg);
 }
 
 .label {
@@ -50,21 +63,24 @@
 
 .activity-input {
   width: 100%;
-  padding: 0.85rem 1rem;
+  padding: 1rem 1.25rem;
   font-family: var(--font-sans);
   font-size: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
   resize: vertical;
-  min-height: 80px;
-  margin-bottom: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 100px;
+  margin-bottom: 1.25rem;
+  transition: all 0.2s ease;
+  background: var(--card-bg);
+  color: var(--text);
 }
 
 .activity-input:focus {
   outline: none;
   border-color: var(--linkedin-blue);
-  box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.15);
+  box-shadow: 0 0 0 4px rgba(10, 102, 194, 0.1), var(--shadow-sm);
+  transform: translateY(-1px);
 }
 
 .activity-input::placeholder {
@@ -79,38 +95,58 @@
 }
 
 .btn {
-  padding: 0.65rem 1.25rem;
+  padding: 0.75rem 1.75rem;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn:disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: not-allowed;
+  transform: none !important;
 }
 
 .btn-primary {
-  background: var(--linkedin-blue);
+  background: linear-gradient(135deg, var(--linkedin-blue) 0%, var(--linkedin-blue-hover) 100%);
   color: white;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--linkedin-blue-hover);
+  background: linear-gradient(135deg, var(--linkedin-blue-hover) 0%, #003366 100%);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: var(--card-bg);
   color: var(--linkedin-blue);
-  border: 1px solid var(--linkedin-blue);
+  border: 2px solid var(--linkedin-blue);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: rgba(10, 102, 194, 0.08);
+  background: var(--linkedin-blue-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 .error {
@@ -130,4 +166,71 @@
   margin-top: 1.25rem;
   display: flex;
   justify-content: center;
+}
+
+.app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-light);
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 0.65rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-xl);
+  transition: all 0.2s ease;
+  position: relative;
+  letter-spacing: -0.01em;
+}
+
+.nav-btn:hover {
+  background: var(--linkedin-blue-light);
+  color: var(--linkedin-blue);
+  transform: translateY(-1px);
+}
+
+.nav-btn-active {
+  color: var(--linkedin-blue);
+  background: linear-gradient(135deg, var(--linkedin-blue-light) 0%, rgba(10, 102, 194, 0.15) 100%);
+  box-shadow: var(--shadow-sm);
+}
+
+.posts-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.post-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.post-activity-label {
+  margin-bottom: -0.5rem;
+}
+
+.activity-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  background: linear-gradient(135deg, var(--linkedin-blue-light) 0%, rgba(10, 102, 194, 0.12) 100%);
+  color: var(--linkedin-blue);
+  border-radius: var(--radius-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(10, 102, 194, 0.2);
 }

@@ -1,4 +1,4 @@
-# WorkforceBeast — AI-Powered Personal Brand Optimizer
+# MakeItUp — The App That We All Know (And Hate?)
 
 Turn any mundane activity into a satirical, exaggerated LinkedIn-style “professional success story” using AI. A tongue-in-cheek take on grind culture and performative professionalism.
 

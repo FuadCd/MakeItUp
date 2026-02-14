@@ -18,3 +18,11 @@ export function generatePost(activity) {
 export function generateVariation(activity) {
   return request('/generate', { activity })
 }
+
+export function generateJobs() {
+  return request('/generate-jobs', {})
+}
+
+export function generateHeadlines() {
+  return request('/generate-headlines', {})
+}

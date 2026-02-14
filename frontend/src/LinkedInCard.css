@@ -1,24 +1,33 @@
 .linkedin-card {
   background: var(--card-bg);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+
+.linkedin-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 .card-header {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 1rem 1.25rem;
+  gap: 14px;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--linkedin-blue) 0%, #004182 100%);
+  background: linear-gradient(135deg, var(--linkedin-blue) 0%, #004182 50%, var(--linkedin-blue) 100%);
   flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .meta {
@@ -46,7 +55,7 @@
 }
 
 .card-body {
-  padding: 0 1.25rem 1rem;
+  padding: 0 1.5rem 1.25rem;
 }
 
 .post-body {
@@ -68,8 +77,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.25rem 1.25rem 0.5rem;
-  border-top: 1px solid var(--border);
+  padding: 0.5rem 1.5rem 0.75rem;
+  border-top: 1px solid var(--border-light);
+  background: rgba(245, 245, 247, 0.5);
 }
 
 .engagement-reactions {
@@ -98,9 +108,10 @@
   display: flex;
   align-items: stretch;
   justify-content: space-around;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-light);
   padding: 0;
-  min-height: 48px;
+  min-height: 52px;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .action-item {
