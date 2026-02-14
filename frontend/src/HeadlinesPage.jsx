@@ -34,7 +34,7 @@ export function HeadlinesPage() {
           onClick={loadHeadlines}
           disabled={loading}
         >
-          {loading ? 'Generating…' : 'Generate New Headlines'}
+          {loading ? 'Loading' : 'Refresh Headlines'}
         </button>
       </header>
 
@@ -42,7 +42,7 @@ export function HeadlinesPage() {
 
       <div className="headlines-container">
         {loading && headlines.length === 0 ? (
-          <div className="headlines-loading">Generating absurd news headlines…</div>
+          <div className="headlines-loading">Refreshing the Main Character News Cycle…</div>
         ) : (
           headlines.map((headline, i) => (
             <div key={i} className="headline-card">
