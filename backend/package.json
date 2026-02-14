@@ -1,5 +1,5 @@
 {
-  "name": "workforcebeast-backend",
+  "name": "makeitup-backend",
   "version": "1.0.0",
   "description": "AI-powered LinkedIn-style post generator API",
   "main": "server.js",

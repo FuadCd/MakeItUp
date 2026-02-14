@@ -6,6 +6,16 @@ function getCommentTime() {
   return 'Just now'
 }
 
+// Ensure each hashtag has a # prefix (handles API returning with or without #)
+function formatHashtags(hashtags) {
+  if (!hashtags || typeof hashtags !== 'string') return ''
+  return hashtags
+    .split(/[\s,]+/)
+    .filter(Boolean)
+    .map((tag) => (tag.startsWith('#') ? tag : `#${tag}`))
+    .join(' ')
+}
+
 export function LinkedInCard({ name, body, hashtags, comments = [] }) {
   const [commentsOpen, setCommentsOpen] = useState(false)
 
@@ -21,7 +31,7 @@ export function LinkedInCard({ name, body, hashtags, comments = [] }) {
       </div>
       <div className="card-body">
         <p className="post-body">{body}</p>
-        <p className="hashtags">{hashtags}</p>
+        <p className="hashtags">{formatHashtags(hashtags)}</p>
       </div>
       <div className="card-engagement">
         <span className="engagement-reactions" aria-hidden="true">

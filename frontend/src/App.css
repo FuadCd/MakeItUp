@@ -8,8 +8,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
   gap: 2rem;
 }
@@ -18,18 +18,26 @@
   flex: 1;
 }
 
-.brand-wrap {
+.brand-block {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
 }
 
 .brand-logo {
-  width: 40px;
-  height: 40px;
+  height: 100px;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
+  object-position: left bottom;
   flex-shrink: 0;
+  display: block;
+  margin: 0;
+  margin-left: 0.5rem;
+  margin-top: 0rem;
+  padding: 0;
 }
 
 .brand {
@@ -44,10 +52,11 @@
 }
 
 .tagline {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   color: var(--text-muted);
   margin: 0;
+  margin-top: 1rem;
   line-height: 1.4;
   text-align: left;
 }
@@ -174,24 +183,34 @@
 }
 
 .nav-btn {
-  padding: 0.5rem 1rem;
-  font-size: 14px;
+  padding: 0.65rem 1.25rem;
+  font-size: 20px;
   font-weight: 500;
   border: none;
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
-  border-radius: var(--radius-sm);
-  transition: color 0.15s ease;
+  border-radius: var(--radius-md);
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
 }
 
 .nav-btn:hover {
   color: var(--linkedin-blue);
+  background-color: var(--linkedin-blue-light);
+  transform: translateY(-1px);
+}
+
+.nav-btn:active {
+  transform: translateY(0);
 }
 
 .nav-btn-active {
   color: var(--linkedin-blue);
   font-weight: 600;
+}
+
+.nav-btn-active:hover {
+  background-color: var(--linkedin-blue-light);
 }
 
 .posts-feed {

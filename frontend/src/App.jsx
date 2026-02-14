@@ -5,7 +5,7 @@ import { JobsPage } from './JobsPage'
 import { HeadlinesPage } from './HeadlinesPage'
 import './App.css'
 
-const AUTHOR_NAME = 'You'
+const AUTHOR_NAME = 'Mr. Chronic Delusion'
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('posts') // 'posts', 'jobs', or 'headlines'
@@ -60,11 +60,10 @@ export default function App() {
     <div className="app">
       <header className="header">
         <div className="header-left">
-          <div className="brand-wrap">
-            <img src="/logo.png" alt="" className="brand-logo" />
-            <h1 className="brand">MakeItUp</h1>
+          <div className="brand-block">
+            <img src="/logo.png" alt="MakeItUp" className="brand-logo" />
+            <p className="tagline">Time To Get Noticed By Everyone... But A Recruiter</p>
           </div>
-          <p className="tagline">Time To Get Noticed By Everyone... But A Recruiter</p>
         </div>
         <nav className="app-nav">
           <button

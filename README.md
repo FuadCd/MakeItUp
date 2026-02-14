@@ -64,7 +64,7 @@ Create an API key at [platform.openai.com/api-keys](https://platform.openai.com/
 ## Project Structure
 
 ```
-Touch-Grass/
+MakeItUp/
 ├── backend/
 │   ├── server.js          # Express API: /generate, /generate-jobs, /generate-headlines
 │   ├── package.json
