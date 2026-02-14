@@ -77,6 +77,18 @@ Respond with a JSON object: "body", "hashtags" (both strings).`;
       { name: "The Corporate Jargon Generator", description: "Uses so many buzzwords in one sentence it becomes completely incomprehensible" },
       { name: "The LinkedIn Influencer", description: "Posts multiple times daily, uses clickbait, 'POV:', 'Tell me you're X without telling me', engagement farming" },
       { name: "The Always-Commenter", description: "Always the first to comment on every post, responds within seconds, has something to say about everything, never misses a post" },
+      { 
+        name: "The Humble Bragger", 
+        description: "Starts every sentence with 'When I was at my internship…', swears they're 'still learning'" 
+      },
+      { 
+        name: "The Hackathon Winner", 
+        description: "Hasn’t slept since 2023, says 'we built this in 24 hours', somehow wins every prize" 
+      },
+      { 
+        name: "The 'As Someone Who…' Guy", 
+        description: "Speaks with expert authority on everything. The expertise: reheating food and watching YouTube tutorials." 
+      },
     ];
 
     // Always include "The Always-Commenter" as the first comment, then randomly select 2 more
