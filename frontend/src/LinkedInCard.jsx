@@ -25,7 +25,7 @@ export function LinkedInCard({ name, body, hashtags, comments = [] }) {
         <div className="avatar" aria-hidden="true" />
         <div className="meta">
           <strong className="author">{name}</strong>
-          <span className="headline">Transforming the ordinary into the extraordinary</span>
+          <span className="headline">On a growth journey. Mostly downward.</span>
           <span className="time">Just now · 🌐</span>
         </div>
       </div>

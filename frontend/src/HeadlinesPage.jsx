@@ -42,7 +42,7 @@ export function HeadlinesPage() {
 
       <div className="headlines-container">
         {loading && headlines.length === 0 ? (
-          <div className="headlines-loading">Refreshing the Main Character News Cycle…</div>
+          <div className="headlines-loading">Measuring your replaceability…</div>
         ) : (
           headlines.map((headline, i) => (
             <div key={i} className="headline-card">
